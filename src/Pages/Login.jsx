@@ -1,6 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from "react-router-dom"
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox
+}from 'mdb-react-ui-kit';
+
 
 const Login = () => {
 
@@ -25,48 +35,47 @@ const Login = () => {
       handleUbicacion();
 
   return (
-    <form>
-    <h3>Sign In</h3>
-    <div className="mb-3">
-    <p className="forgot-password text-right">
-      No estas resgistrado? <Link to="/regist">Registrarse</Link>
-    </p>
-      <label>Email address</label>
-      <input
-        type="email"
-        className="form-control"
-        placeholder="Enter email"
-      />
-    </div>
-    <div className="mb-3">
-      <label>Password</label>
-      <input
-        type="password"
-        className="form-control"
-        placeholder="Enter password"
-      />
-    </div>
-    <div className="mb-3">
-      <div className="custom-control custom-checkbox">
-        <input
-          type="checkbox"
-          className="custom-control-input"
-          id="customCheck1"
-        />
-        <label className="custom-control-label" htmlFor="customCheck1">
-          Remember me
-        </label>
-      </div>
-    </div>
-    <div className="d-grid">
-      <button type="submit" className="btn btn-primary">
-        Submit
-      </button>
-    </div>
-    <p className="forgot-password text-right">
-      Forgot <Link to="/recovery">password?</Link>
-    </p>
-  </form>
+    <MDBContainer fluid className="p-3 my-5">
+
+    <MDBRow>
+
+      <MDBCol col='10' md='6'>
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid" alt="Phone image" />
+      </MDBCol>
+
+      <MDBCol col='4' md='6'>
+
+
+        <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg"/>
+        <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg"/>
+
+
+        <div className="d-flex justify-content-between mx-4 mb-4">
+          <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Recuerdame' />
+          <Link to="/recovery">Olvidó su contraseña?</Link>
+        </div>
+
+        <MDBBtn className="mb-4 w-100" size="lg">Sign in</MDBBtn>
+
+        <div className="divider d-flex align-items-center my-4">
+          <p className="text-center fw-bold mx-3 mb-0">O</p>
+        </div>
+
+        <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#3b5998'}}>
+          <MDBIcon fab icon="facebook-f" className="mx-2"/>
+          Continue with facebook
+        </MDBBtn>
+
+        <Link to="/regist"><MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#55acee'}}>
+          <MDBIcon fab icon="twitter" className="mx-2"/>
+          Registrarse
+        </MDBBtn></Link>
+
+      </MDBCol>
+
+    </MDBRow>
+
+  </MDBContainer>
   )
 }
 
